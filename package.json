@@ -42,6 +42,6 @@
         "url" : "http://github.com/awssum/awssum-amazon/raw/master/LICENSE"
     }],
     "keywords" : [
-        "awssum", "awssumplugin", "amazon", "webapi", "api"
+        "awssum", "awssum-plugin", "amazon", "aws", "webapi", "api"
     ]
 }
