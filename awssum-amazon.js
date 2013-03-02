@@ -17,6 +17,7 @@ var util = require("util");
 // our own library
 var awssum = require("awssum");
 var awsSignatureV2 = require('./lib/aws-signature-v2.js');
+var awsSignatureV4 = require('./lib/aws-signature-v4.js');
 
 // --------------------------------------------------------------------------------------------------------------------
 // constants
@@ -132,13 +133,44 @@ Amazon.prototype.extractBody = function() {
 // function signature(strToSign)   -> string (the signature itself)
 // function addSignature(options, signature) -> side effect, adds the signature to the 'options'
 
+// --------------------------------------------------------------------------------------------------------------------
+// create 2 other versions of the Amazon constructor for v2 and v4 signatures
+
 // This service uses (defaults to) the AWS Signature v2.
-Amazon.prototype.signatureVersion = awsSignatureV2.signatureVersion;
-Amazon.prototype.signatureMethod  = awsSignatureV2.signatureMethod;
-Amazon.prototype.strToSign        = awsSignatureV2.strToSign;
-Amazon.prototype.signature        = awsSignatureV2.signature;
-Amazon.prototype.addSignature     = awsSignatureV2.addSignature;
-Amazon.prototype.addCommonOptions = awsSignatureV2.addCommonOptions;
+var AmazonSignatureV2 = function(opts) {
+    var self = this;
+
+    // call the superclass for initialisation
+    AmazonSignatureV2.super_.call(self, opts);
+
+    return self;
+};
+util.inherits(AmazonSignatureV2, Amazon);
+
+AmazonSignatureV2.prototype.signatureVersion = awsSignatureV2.signatureVersion;
+AmazonSignatureV2.prototype.signatureMethod  = awsSignatureV2.signatureMethod;
+AmazonSignatureV2.prototype.strToSign        = awsSignatureV2.strToSign;
+AmazonSignatureV2.prototype.signature        = awsSignatureV2.signature;
+AmazonSignatureV2.prototype.addSignature     = awsSignatureV2.addSignature;
+AmazonSignatureV2.prototype.addCommonOptions = awsSignatureV2.addCommonOptions;
+
+// This service uses (defaults to) the AWS Signature v4.
+var AmazonSignatureV4 = function(opts) {
+    var self = this;
+
+    // call the superclass for initialisation
+    AmazonSignatureV4.super_.call(self, opts);
+
+    return self;
+};
+util.inherits(AmazonSignatureV4, Amazon);
+
+AmazonSignatureV4.prototype.signatureVersion = awsSignatureV4.signatureVersion;
+AmazonSignatureV4.prototype.signatureMethod  = awsSignatureV4.signatureMethod;
+AmazonSignatureV4.prototype.strToSign        = awsSignatureV4.strToSign;
+AmazonSignatureV4.prototype.signature        = awsSignatureV4.signature;
+AmazonSignatureV4.prototype.addSignature     = awsSignatureV4.addSignature;
+AmazonSignatureV4.prototype.addCommonOptions = awsSignatureV4.addCommonOptions;
 
 // --------------------------------------------------------------------------------------------------------------------
 // exports
@@ -156,5 +188,7 @@ exports.SA_EAST_1      = SA_EAST_1;
 
 // object constructor
 exports.Amazon = Amazon;
+exports.AmazonSignatureV2 = AmazonSignatureV2;
+exports.AmazonSignatureV4 = AmazonSignatureV4;
 
 // --------------------------------------------------------------------------------------------------------------------

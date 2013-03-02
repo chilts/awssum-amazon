@@ -101,7 +101,7 @@ test("test awsAccountId", function (t) {
 });
 
 test("test strToSign", function (t) {
-    var amz = new amazon.Amazon({
+    var amz = new amazon.AmazonSignatureV2({
         accessKeyId     : 'access_key_id',
         secretAccessKey : 'secret_access_key',
         awsAccountId    : '111122223333',
@@ -126,7 +126,7 @@ test("test strToSign", function (t) {
 });
 
 test("test signature", function (t) {
-    var amz = new amazon.Amazon({
+    var amz = new amazon.AmazonSignatureV2({
         accessKeyId     : 'access_key_id',
         secretAccessKey : 'secret_access_key',
         awsAccountId    : '1111-2222-3333',
