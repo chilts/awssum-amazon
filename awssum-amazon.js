@@ -171,6 +171,7 @@ AmazonSignatureV4.prototype.strToSign        = awsSignatureV4.strToSign;
 AmazonSignatureV4.prototype.signature        = awsSignatureV4.signature;
 AmazonSignatureV4.prototype.addSignature     = awsSignatureV4.addSignature;
 AmazonSignatureV4.prototype.addCommonOptions = awsSignatureV4.addCommonOptions;
+AmazonSignatureV4.prototype.contentType      = awsSignatureV4.contentType;
 
 // --------------------------------------------------------------------------------------------------------------------
 // exports
