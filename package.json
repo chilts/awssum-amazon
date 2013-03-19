@@ -1,14 +1,14 @@
 {
     "name" : "awssum-amazon",
     "description" : "NodeJS module to aid talking to Amazon Web Services. Requires awssum-amazon-* plugins.",
-    "version" : "1.0.0",
+    "version" : "1.0.0-alpha",
 
     "main" : "awssum-amazon.js",
     "engines" : {
         "node" : ">= 0.6.0"
     },
     "peerDependencies" : {
-        "awssum" : "1.x.x"
+        "awssum" : "1.0.0-alpha"
     },
     "dependencies" : {
         "underscore" : "1.4.x",
