@@ -1,7 +1,7 @@
 {
     "name" : "awssum-amazon",
     "description" : "NodeJS module to aid talking to Amazon Web Services. Requires awssum-amazon-* plugins.",
-    "version" : "1.2.0",
+    "version" : "1.3.0",
 
     "main" : "awssum-amazon.js",
     "engines" : {
