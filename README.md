@@ -1,3 +1,5 @@
+NOTE: AwsSum is now deprecated. Please use [aws-sdk](https://www.npmjs.org/package/aws-sdk) instead.
+
 # Amazon (for AwsSum) #
 
 This is the base class for all Amazon services. It defines a few things such as constants and the constructor expects
